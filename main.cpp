@@ -64,18 +64,45 @@ Print g_Log;
 
 void loop()
 {
+	static MFRC522::Uid PrevUID{};
+	static int ReadCounter = 0;
+
 	// Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
-	if ( !mfrc522.PICC_IsNewCardPresent()) {
+	if (!mfrc522.PICC_IsNewCardPresent())
+	{
+		PrevUID = {};
+		ReadCounter = 0;
+		delay(500);
 		return;
 	}
 
 	// Select one of the cards.
-	if ( !mfrc522.PICC_ReadCardSerial()) {
+	if (!mfrc522.PICC_ReadCardSerial())
 		return;
-	}
 
 	// Dump debug info about the card; PICC_HaltA() is automatically called.
 	MFRC522Debug::PICC_DumpToSerial(mfrc522, g_Log, &(mfrc522.uid));
+
+	if (memcmp((void*)&PrevUID, (void*)&mfrc522.uid, sizeof(MFRC522::Uid)))
+	{
+		PrevUID = mfrc522.uid;
+		ReadCounter = 0;
+		return;
+	}
+
+	if (++ReadCounter < 2) // (0 1 2) 3 trials
+		return;
+	
+	// If the card hasn't been removed from card reader - don't read it again for certain period of time
+	for (int i = 0; i < 20; ++i) // 20 * 500 = 10000 ms
+	{
+		if (!mfrc522.PICC_IsNewCardPresent())
+			break;
+		delay(500);
+	}
+
+	PrevUID = {};
+	ReadCounter = 0;
 }
 
 int main()
