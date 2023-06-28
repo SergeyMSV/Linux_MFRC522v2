@@ -1,9 +1,7 @@
 /* SPDX-License-Identifier: LGPL-2.1 */
 #pragma once
 
-#include <SPI.h>
 #include <MFRC522Driver.h>
-#include <MFRC522DriverPin.h>
 
 class MFRC522DriverSPI : public MFRC522Driver {
 public:

@@ -26,15 +26,6 @@
     <ClInclude Include="src\MFRC522Driver.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\MFRC522DriverI2C.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MFRC522DriverPin.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MFRC522DriverPinSimple.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\MFRC522DriverSPI.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -44,16 +35,11 @@
     <ClInclude Include="src\MFRC522v2.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="SPI.h" />
-    <ClInclude Include="Wire.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Arduino.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\MFRC522Debug.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MFRC522DriverI2C.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\MFRC522DriverSPI.cpp">

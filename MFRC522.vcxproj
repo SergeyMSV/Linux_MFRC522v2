@@ -147,25 +147,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="SPI.h" />
     <ClInclude Include="src\deprecated.h" />
     <ClInclude Include="src\MFRC522Constants.h" />
     <ClInclude Include="src\MFRC522Debug.h" />
     <ClInclude Include="src\MFRC522Driver.h" />
-    <ClInclude Include="src\MFRC522DriverI2C.h" />
-    <ClInclude Include="src\MFRC522DriverPin.h" />
-    <ClInclude Include="src\MFRC522DriverPinSimple.h" />
     <ClInclude Include="src\MFRC522DriverSPI.h" />
     <ClInclude Include="src\MFRC522Hack.h" />
     <ClInclude Include="src\MFRC522v2.h" />
     <ClInclude Include="src\require_cpp11.h" />
     <ClInclude Include="Arduino.h" />
-    <ClInclude Include="Wire.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\MFRC522Debug.cpp" />
-    <ClCompile Include="src\MFRC522DriverI2C.cpp" />
     <ClCompile Include="src\MFRC522DriverSPI.cpp" />
     <ClCompile Include="src\MFRC522Hack.cpp" />
     <ClCompile Include="src\MFRC522v2.cpp" />
