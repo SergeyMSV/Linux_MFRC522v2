@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Arduino.h" />
+    <ClInclude Include="src\deprecated.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\require_cpp11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522Constants.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522Debug.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522Driver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522DriverI2C.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522DriverPin.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522DriverPinSimple.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522DriverSPI.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522Hack.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MFRC522v2.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="SPI.h" />
+    <ClInclude Include="Wire.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Arduino.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\MFRC522Debug.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MFRC522DriverI2C.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MFRC522DriverSPI.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MFRC522Hack.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MFRC522v2.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
