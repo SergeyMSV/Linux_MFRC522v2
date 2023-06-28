@@ -33,31 +33,34 @@ static uint16_t delay_us = 0;
 
 int fd = 0;
 
-MFRC522DriverSPI g_DriverSPI;
+class tDevSPI : public MFRC522DriverSPI
+{
+	std::vector<uint8_t> Transaction(const std::vector<uint8_t>& tx) override
+	{
+    	std::vector<uint8_t> rx;
+    	rx.resize(tx.size());
+
+    	struct spi_ioc_transfer tr = {
+    		.tx_buf = (unsigned long)tx.data(),
+    		.rx_buf = (unsigned long)rx.data(),
+    		.len = tx.size(),
+    		.speed_hz = speed,
+    		.delay_usecs = delay_us,
+    		.bits_per_word = bits,
+      };
+
+      int ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
+      if (ret < 1)
+          pabort("can't send spi message");
+
+      return rx;
+	}
+};
+
+tDevSPI g_DriverSPI;
 MFRC522 mfrc522(g_DriverSPI);
 
 Print g_Log;
-
-std::vector<uint8_t> SPITransfer(const std::vector<uint8_t>& tx)
-{
-	std::vector<uint8_t> rx;
-	rx.resize(tx.size());
-
-	struct spi_ioc_transfer tr = {
-		.tx_buf = (unsigned long)tx.data(),
-		.rx_buf = (unsigned long)rx.data(),
-		.len = tx.size(),
-		.speed_hz = speed,
-		.delay_usecs = delay_us,
-		.bits_per_word = bits,
-	};
-
-	int ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
-	if (ret < 1)
-		pabort("can't send spi message");
-
-	return rx;
-}
 
 void loop()
 {

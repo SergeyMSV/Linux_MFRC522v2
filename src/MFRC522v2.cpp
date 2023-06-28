@@ -550,7 +550,7 @@ MFRC522::StatusCode MFRC522::PICC_Select(Uid *uid,      ///< Pointer to Uid stru
   byte                bufferUsed;        // The number of bytes used in the buffer, ie the number of bytes to transfer to the FIFO.
   byte                rxAlign;          // Used in BitFramingReg. Defines the bit position for the first bit received.
   byte                txLastBits;        // Used in BitFramingReg. The number of valid bits in the last transmitted byte. 
-  byte                *responseBuffer;
+  byte                *responseBuffer = nullptr;
   byte                responseLength;
   
   // Description of buffer structure:

@@ -21,23 +21,9 @@ public:
   void PCD_WriteRegister(const PCD_Register reg, const byte count, byte *const values) override;
   byte PCD_ReadRegister(const PCD_Register reg) override;
   void PCD_ReadRegister(const PCD_Register reg, const byte count, byte *const values, const byte rxAlign = 0) override;
-  
-  
-  // Advanced init with custom chip select method, e.g. with i2c port expander or multiplexer.
-  MFRC522DriverSPI(MFRC522DriverPin &chipSelectPin,
-                   SPIClass &spiClass = SPI,
-                   const SPISettings spiSettings = SPISettings(4000000u /* 4MHz */, MSBFIRST, SPI_MODE0)
-                  ) : MFRC522Driver(),
-                      _chipSelectPin(chipSelectPin),
-                      _spiClass(spiClass),
-                      _spiSettings(spiSettings) {};
+
+  MFRC522DriverSPI () = default;
 
 protected:
-  // Pins.
-  //byte _chipSelectPin;        // Arduino pin connected to MFRC522's SPI slave select input (Pin 24, NSS, active low)
-  MFRC522DriverPin &_chipSelectPin; // Arduino pin connected to MFRC522's SPI slave select input (Pin 24, NSS, active low)
-  
-  // SPI communication.
-  SPIClass &_spiClass;        // SPI class which abstracts hardware.
-  const SPISettings _spiSettings;    // SPI settings.
+  virtual std::vector<uint8_t> Transaction(const std::vector<uint8_t>& tx) = 0;
 };
