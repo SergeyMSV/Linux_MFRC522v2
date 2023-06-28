@@ -63,33 +63,6 @@ void delayMicroseconds(int val)
 	std::this_thread::sleep_for(std::chrono::microseconds(val));
 }
 
-void pinMode(byte pin, GPIOMode mode)
-{
-}
-
-GPIOState g_GPIO_Rst = GPIOState::LOW;
-GPIOState g_GPIO_CS = GPIOState::LOW;
-
-void digitalWrite(byte pin, GPIOState state)
-{
-	if (pin == SS_PIN)
-		g_GPIO_CS = state;
-
-	if (pin == RST_PIN)
-		g_GPIO_Rst = state;
-}
-
-GPIOState digitalRead(byte pin)
-{
-	if (pin == SS_PIN)
-		return g_GPIO_CS;
-
-	if (pin == RST_PIN)
-		return g_GPIO_Rst;
-
-	return GPIOState::LOW;
-}
-
 uint32_t millis()
 {
 	auto time_now = std::chrono::steady_clock::now();

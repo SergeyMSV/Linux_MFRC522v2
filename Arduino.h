@@ -41,29 +41,6 @@ struct Print
 void delay(int val); // in ms
 void delayMicroseconds(int val);
 
-enum tGPIO
-{
-	SS_PIN,
-	RST_PIN,
-};
-
-enum GPIOMode
-{
-	INPUT,
-	OUTPUT,
-};
-
-void pinMode(byte pin, GPIOMode mode);
-
-enum GPIOState
-{
-	LOW,
-	HIGH,
-};
-
-void digitalWrite(byte pin, GPIOState state);
-GPIOState digitalRead(byte pin);
-
 //Returns the number of milliseconds passed since the Arduino board began running the current program.This number will overflow(go back to zero), after approximately 50 days.
 uint32_t millis();
 
