@@ -171,6 +171,12 @@
     <ClCompile Include="src\MFRC522v2.cpp" />
     <ClCompile Include="Arduino.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".vscode\c_cpp_properties.json" />
+    <None Include=".vscode\launch.json" />
+    <None Include=".vscode\tasks.json" />
+    <None Include="mfrc522.code-workspace" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
