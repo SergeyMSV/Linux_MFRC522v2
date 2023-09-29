@@ -94,7 +94,7 @@ void MFRC522DriverSPI::PCD_ReadRegister(const PCD_Register reg,    ///< The regi
     values[0] = (values[0] & ~mask) | (rx[1] & mask);
     ++index;
   }
-  while (index <= count)
+  while (index < count)
   {
     values[index] = rx[index + 1];	// Read value and tell that we want to read the same address again.
     ++index;
