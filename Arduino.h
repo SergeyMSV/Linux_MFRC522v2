@@ -11,9 +11,9 @@
 
 #define PROGMEM
 
-#define SS 0
-#define MSBFIRST 0
-#define SPI_MODE0 0
+//#define SS 0
+//#define MSBFIRST 0
+//#define SPI_MODE0 0
 
 extern std::chrono::steady_clock::time_point g_time_start;
 
